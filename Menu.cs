@@ -17,7 +17,7 @@ public class Menu : MonoBehaviour {
 
     string newGame = "NEW GAME";
     string howTo = "HOW TO";
-        string customize = "CUSTOMIZE";
+    string customize = "CUSTOMIZE";
     string credits = "CREDITS";
     string quit = "QUIT";
     string back = "BACK";
@@ -195,7 +195,7 @@ public class Menu : MonoBehaviour {
         GUITextBox("\nCustomize your gameplay.\nSelect one of the bombs to change the loadout.");
         for (int i = 0; i < rectCustomBomb.Length; i++)
         {
-            if (GUI.Button(rectCustomBomb[i], "Bomb " + i + "\n"+bombtype[i],guiSmallButton))
+            if (GUI.Button(rectCustomBomb[i], "Bomb " + i + "\n"+bombtype[i], guiSmallButton))
             {
                 bomChanging = i;
                 mode = "changebomb";
@@ -224,11 +224,11 @@ public class Menu : MonoBehaviour {
 
         if (GUI.Button(rectHowTo, "SIMPLE BOMB\nThe simple bomb explode without any fancy tricks.\nShort name: SimpleBomb.", guiChangeBomb))
         {
-            string[] value = {"BombType", i.ToString()};
+            string[] value = { "BombType", i.ToString() };
             PlayerPrefs.SetString(string.Join("", value, 0, 2), "SimpleBomb");
             mode = "customize";
         }
-        if (GUI.Button(rectCredits, "TIME BOMB\nThis lazy waits a few moments before it explode.\nShort name: TimeBomb.",guiChangeBomb))
+        if (GUI.Button(rectCredits, "TIME BOMB\nThis lazy waits a few moments before it explode.\nShort name: TimeBomb.", guiChangeBomb))
         {
             string[] value = { "BombType", i.ToString() };
             PlayerPrefs.SetString(string.Join("", value, 0, 2), "TimeBomb");
@@ -239,6 +239,13 @@ public class Menu : MonoBehaviour {
             string[] value = { "BombType", i.ToString() };
             PlayerPrefs.SetString(string.Join("", value, 0, 2), "ImpBomb");
             mode = "customize";
+        }
+        if (GUI.Button(new Rect(rectQuit.xMin,rectQuit.yMax,rectQuit.width,rectQuit.height), "COLLISION BOM\nThis bomb explodes when an object hits it.\nShort name: CollBomb", guiChangeBomb))
+        {
+            string[] value = { "BombType", i.ToString() };
+            PlayerPrefs.SetString(string.Join("", value, 0, 2), "CollBomb");
+            mode = "customize";
+
         }
     }
 

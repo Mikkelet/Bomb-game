@@ -4,8 +4,7 @@ using System.Collections;
 public class Bomb_Simple : MonoBehaviour {
 
     public bool exploded = false;
-    public GameObject closestObject;
-   
+
     float radius = 70.0F;
     float power = 5000.0F;
 
@@ -26,10 +25,5 @@ public class Bomb_Simple : MonoBehaviour {
             }
             Destroy(gameObject);
         }
-
-        Debug.Log(""+colliders[0].name);
-        Debug.DrawLine(transform.position, new Vector3(colliders[1].transform.position.x,
-                                                        colliders[1].transform.position.y,
-                                                        colliders[1].transform.position.z));
     }
 }

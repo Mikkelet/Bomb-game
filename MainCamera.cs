@@ -12,11 +12,13 @@ public class MainCamera : MonoBehaviour
 
     public Texture texSimpleBomb;           // Texture used for displaying # of bombs left on GUI.
     public Texture texTimeBomb;             //
-    public Texture texImpBomb; 
+    public Texture texImpBomb;
+    public Texture texCollBomb;            
 
     public GameObject pfSimpleBomb;         // Finding the simple bomb-object in the game.
     public GameObject pfTimeBomb;           // Finding the time bomb-object in the game.
     public GameObject pfImpBomb;            // Prefab of the Implosion Bomb;
+    public GameObject pfCollBomb;
 
     public GameObject bombPos;              // finding the position of the bomb.
 
@@ -159,6 +161,14 @@ public class MainCamera : MonoBehaviour
                         bombsLeftHeight),
                         texImpBomb, GUIStyle.none);
                     break;
+                case "CollBomb":
+                    GUI.Box(new Rect(
+                        bombsLeftPosX + (32 * i),
+                        bombsLeftPosY,
+                        bombsLeftWidth,
+                        bombsLeftHeight),
+                        texCollBomb, GUIStyle.none);
+                    break;
             }
     }
 
@@ -180,6 +190,9 @@ public class MainCamera : MonoBehaviour
                             break;
                         case "ImpBomb(Clone)":
                             objs[i].GetComponent<Bomb_Implosion>().exploded = true;
+                            break;
+                        case "CollBomb(Clone)":
+                            objs[i].GetComponent<Bomb_Collision>().exploded = true;
                             break;
                     }
                     objs[i].animation.Play();
@@ -259,6 +272,10 @@ public class MainCamera : MonoBehaviour
                         break;
                     case "ImpBomb":
                         bomb = (GameObject)GameObject.Instantiate(pfImpBomb, instancePos, Quaternion.identity);
+                        bombsLeft--;
+                        break;
+                    case "CollBomb":
+                        bomb = (GameObject)GameObject.Instantiate(pfCollBomb, instancePos, Quaternion.identity);
                         bombsLeft--;
                         break;
                 }
