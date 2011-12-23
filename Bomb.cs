@@ -3,6 +3,8 @@ using System.Collections;
 
 public class NewBehaviourScript : MonoBehaviour {
 
+    const int TESTING_VAR = 1337;
+
 	// Use this for initialization
 	void Start () {
 	
