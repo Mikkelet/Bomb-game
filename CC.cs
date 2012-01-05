@@ -12,7 +12,7 @@ public class CC : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         controller = GetComponent<CharacterController>();
-        //Physics.gravity = new Vector3(0, gravity, 0);
+
 	}
 	
 	// Update is called once per frame

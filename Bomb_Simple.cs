@@ -7,23 +7,32 @@ public class Bomb_Simple : MonoBehaviour {
 
     float radius = 70.0F;
     float power = 5000.0F;
+    AnimationCurve aniCurve;
+
+    void Awake()
+    {
+        aniCurve = new AnimationCurve();
+    }
 
     void Update()
     {
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
-        if (exploded && !animation.isPlaying)
+        if (exploded)
         {
-            //Vector3 explosionPos = transform.position;
-            //Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+            animation.Play();
             foreach (Collider hit in colliders)
             {
                 if (hit.rigidbody)
                     hit.rigidbody.AddExplosionForce(power, explosionPos, radius, 3.0F, ForceMode.Force);
                 MainCamera.score += 10;
+
                 exploded = false;
             }
-            Destroy(gameObject);
+        }
+        if (exploded == false && an )
+        {
+
         }
     }
 }

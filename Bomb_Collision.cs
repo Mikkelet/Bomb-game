@@ -8,7 +8,7 @@ public class Bomb_Collision : MonoBehaviour {
     float radius = 70.0F;
     float power = 5000.0F;
 
-    void OnCollisionEnter(Collision collider)
+    void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.name == "Cube")
         {
@@ -16,6 +16,7 @@ public class Bomb_Collision : MonoBehaviour {
             Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
             if (exploded && !animation.isPlaying)
             {
+                animation.Play();
                 foreach (Collider hit in colliders)
                 {
                     if (hit.rigidbody)

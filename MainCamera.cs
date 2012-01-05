@@ -195,7 +195,7 @@ public class MainCamera : MonoBehaviour
                             objs[i].GetComponent<Bomb_Collision>().exploded = true;
                             break;
                     }
-                    objs[i].animation.Play();
+                    //objs[i].animation.Play();
                 }
                 winTime = Time.time+PLAY_TIME;
                 won = true;
@@ -225,7 +225,7 @@ public class MainCamera : MonoBehaviour
 
         if (pauseGame)
         {
-            Pause();
+            //Pause();
         }
     }
 
