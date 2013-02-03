@@ -4,26 +4,18 @@ using System.Collections;
 public class Bomb_Implosion : MonoBehaviour
 {
 
-    float radius = 70.0F;
-    float power = -5000.0F;
-    public bool exploded = false;
+    public Bomb bomb = new Bomb();
 
-    void Update()
+    // Use this for initialization
+    void Start()
     {
-        if (exploded && !animation.isPlaying)
-        {
-            Vector3 explosionPos = transform.position;
-            Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
-            foreach (Collider hit in colliders)
-            {
-                if (hit.rigidbody)
-                    hit.rigidbody.AddExplosionForce(power, explosionPos, radius, 3.0F, ForceMode.Force);
-                MainCamera.score += 10;
-                exploded = false;
-
-            }
-
-            Destroy(gameObject);
-        }
+        bomb.BombType = "Implosion Bomb";
+        bomb.BombDescription = "Your standard, run-of-the-mill anti-explosives!";
+        bomb.Power = -5000;
+        bomb.Radius = 70;
+        bomb.Position = gameObject.transform.position;
+        bomb.IsExploded = true;
+        bomb.GameObj = gameObject;
     }
 }
+

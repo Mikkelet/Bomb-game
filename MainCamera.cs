@@ -122,6 +122,7 @@ public class MainCamera : MonoBehaviour
         bombType[0] = PlayerPrefs.GetString("BombType0");
         bombType[1] = PlayerPrefs.GetString("BombType1");
         bombType[2] = PlayerPrefs.GetString("BombType2");
+
     }
 
     void Update()
@@ -183,19 +184,19 @@ public class MainCamera : MonoBehaviour
                     switch (objs[i].name)
                     {
                         case "SimpleBomb(Clone)":
-                            objs[i].GetComponent<Bomb_Simple>().exploded = true;
+                            objs[i].GetComponent<Bomb_Simple>().bomb.Explode();
                             break;
                         case "TimeBomb(Clone)":
-                            objs[i].GetComponent<Bomb_Time>().exploded = true;
+                            StartCoroutine(objs[i].GetComponent<Bomb_Time>().bomb.WaitToExplode(1));
                             break;
                         case "ImpBomb(Clone)":
-                            objs[i].GetComponent<Bomb_Implosion>().exploded = true;
+                            objs[i].GetComponent<Bomb_Implosion>().bomb.Explode();
                             break;
                         case "CollBomb(Clone)":
                             objs[i].GetComponent<Bomb_Collision>().exploded = true;
                             break;
                     }
-                    //objs[i].animation.Play();
+                    
                 }
                 winTime = Time.time+PLAY_TIME;
                 won = true;

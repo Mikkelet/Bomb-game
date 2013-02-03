@@ -15,6 +15,8 @@ public class Menu : MonoBehaviour {
     public GUIStyle guiChangeBomb;
     public GUIStyle guiSettings;
 
+    public Font font;
+
     string newGame = "NEW GAME";
     string howTo = "HOW TO";
     string customize = "CUSTOMIZE";
@@ -114,6 +116,14 @@ public class Menu : MonoBehaviour {
             PlayerPrefs.SetString("BombType1", "SimpleBomb");
             PlayerPrefs.SetString("BombType2", "SimpleBomb");
         }
+
+        //settings for GUIStyles
+        guiBox.font = font;
+        guiButton.font = font;
+        guiChangeBomb.font = font;
+        guiSettings.font = font;
+        guiSmallButton.font = font;
+
     }
 
     void OnGUI()
