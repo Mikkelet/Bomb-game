@@ -1,34 +1,35 @@
 using UnityEngine;
 using System.Collections;
 
-public class Bomb_Collision : MonoBehaviour {
+public class Bomb_Collision : MonoBehaviour
+{
 
-    public bool exploded = false;
+    public Bomb bomb = new Bomb();
 
-    float radius = 70.0F;
-    float power = 5000.0F;
+    // Use this for initialization
+    void Start()
+    {
+        bomb.BombType = "CollBomb";
+        bomb.BombDescription = "The super new collision detector bomb!";
+        bomb.Power = 2000;
+        bomb.Radius = 70;
+        bomb.Position = gameObject.transform.position;
+        bomb.IsExploded = false;
+        bomb.GameObj = gameObject;
+        print("ini done");
+    }
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.name == "Cube")
+        print(bomb.IsExploded);
+        if (collider.transform.name == "Cube")
         {
-            Vector3 explosionPos = transform.position;
-            Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
-            if (exploded && !animation.isPlaying)
+            if (bomb.IsExploded)
             {
-                animation.Play();
-                foreach (Collider hit in colliders)
-                {
-                    if (hit.rigidbody)
-                        hit.rigidbody.AddExplosionForce(power, explosionPos, radius, 3.0F, ForceMode.Force);
-                    MainCamera.score += 10;
-                    exploded = false;
-                }
-                Destroy(gameObject);
+                bomb.Explode();
             }
         }
-
     }
 
-    
 }
+

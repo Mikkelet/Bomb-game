@@ -10,7 +10,7 @@ public class Bomb
 {
     private string bombType;
     private string bombDesciption;
-    public static bool isExploded = true;
+    private bool isExploded;
     private int power;
     private int radius;
     private Vector3 position;
@@ -102,8 +102,6 @@ public class Bomb
         yield return new WaitForSeconds(time);
         Explode();
     }
-
-
 
     #endregion
     /* content

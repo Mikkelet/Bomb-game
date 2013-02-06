@@ -123,6 +123,7 @@ public class MainCamera : MonoBehaviour
         bombType[1] = PlayerPrefs.GetString("BombType1");
         bombType[2] = PlayerPrefs.GetString("BombType2");
 
+        bombType[2] = "CollBomb";
     }
 
     void Update()
@@ -193,7 +194,7 @@ public class MainCamera : MonoBehaviour
                             objs[i].GetComponent<Bomb_Implosion>().bomb.Explode();
                             break;
                         case "CollBomb(Clone)":
-                            objs[i].GetComponent<Bomb_Collision>().exploded = true;
+                            objs[i].GetComponent<Bomb_Collision>().bomb.IsExploded = true;
                             break;
                     }
                     

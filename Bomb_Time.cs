@@ -9,7 +9,7 @@ public class Bomb_Time : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        bomb.BombType = "Time Bomb";
+        bomb.BombType = "TimeBomb";
         bomb.BombDescription = "This thing is a ticking bomb. literally.";
         bomb.Power = 5000;
         bomb.Radius = 70;

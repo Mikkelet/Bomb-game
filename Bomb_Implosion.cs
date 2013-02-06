@@ -9,7 +9,7 @@ public class Bomb_Implosion : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        bomb.BombType = "Implosion Bomb";
+        bomb.BombType = "ImpBomb";
         bomb.BombDescription = "Your standard, run-of-the-mill anti-explosives!";
         bomb.Power = -5000;
         bomb.Radius = 70;

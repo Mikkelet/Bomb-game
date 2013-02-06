@@ -7,7 +7,7 @@ public class Bomb_Simple : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        bomb.BombType= "Simple Bomb";
+        bomb.BombType= "SimpleBomb";
         bomb.BombDescription = "Your standard, run-of-the-mill explosives!";
         bomb.Power = 5000;
         bomb.Radius = 70;
